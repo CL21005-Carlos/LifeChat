@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">LifeChat</string>
+    <string name="welcome_message">Bienvenido a LifeChat</string>
+
+    <string name="login_message">Inicia sesion a continuacion</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="Sign">INICIAR SESION</string>
+    <string name="NewRegister">Registrar Nueva Cuenta</string>
+    <string name="RegisterAccount">REGISTRO DE CUENTA</string>
+    <string name="AddImg">Fotografia</string>
+    <string name="name">Nombre</string>
+    <string name="ConfirmPassword">Confirmar Contraseña</string>
+    <string name="NewAccount">CREAR CUENTA</string>
+</resources>

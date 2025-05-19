@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "723235444742",
+    "project_id": "chat-life-5567a",
+    "storage_bucket": "chat-life-5567a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723235444742:android:9205777244360298a4cb87",
+        "android_client_info": {
+          "package_name": "com.PDMG3.lifechat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIzutOkLAD312uKR6qMEUjJpIZV6OTtr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
