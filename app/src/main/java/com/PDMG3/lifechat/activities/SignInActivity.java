@@ -2,17 +2,15 @@ package com.PDMG3.lifechat.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.widget.Toast;
-
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
-import com.PDMG3.lifechat.R;
 import com.PDMG3.lifechat.databinding.ActivitySignInBinding;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
+
+
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -28,20 +26,25 @@ public class SignInActivity extends AppCompatActivity {
     private void setListeners(){
         binding.textCreateNewAccount.setOnClickListener(v ->
                 startActivity(new Intent(getApplicationContext(),SignUpActivity.class)));
-        binding.btnSignIn.setOnClickListener(v -> addDataToFirestore());
     }
-    private void addDataToFirestore(){
-        FirebaseFirestore database = FirebaseFirestore.getInstance();
-        HashMap<String, Object> data = new HashMap<>();
-        data.put("first_name", "Carlos");
-        data.put("last_name", "Canales");
-        database.collection("users")
-                .add(data)
-                .addOnSuccessListener(documentReference -> {
-                    Toast.makeText(getApplicationContext(), "Data Inserted", Toast.LENGTH_SHORT).show();
-                })
-                .addOnFailureListener(exception ->{
-                    Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
-                });
+
+    private void showToast(String message){
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
+
+    private Boolean isValidSignInDetails(){
+        if (binding.inputEmail.getText().toString().trim().isEmpty()){
+            showToast("Ingresar Email");
+            return false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(binding.inputEmail.getText().toString()).matches()) {
+            showToast("Ingresar Email valido");
+            return false;
+        } else if (binding.inputPassword.getText().toString().trim().isEmpty()) {
+            showToast("Ingresar Clave");
+            return false;
+        }else {
+            return true;
+        }
+    }
+
 }
