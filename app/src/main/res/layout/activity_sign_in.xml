@@ -68,21 +68,34 @@
             android:textColor="@color/secondary_text"
             android:textSize="@dimen/_16ssp"
             android:gravity="center_vertical"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnSignIn"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginTop="@dimen/_16ssp"
-            android:background="@drawable/rounded_button"
-            android:text="@string/Sign"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_13ssp"
-            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:animateLayoutChanges="true">
 
-            />
+            <Button
+                android:id="@+id/btnSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:background="@drawable/rounded_button"
+                android:text="@string/Sign"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold"
+                android:gravity="center" />
+            
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:layout_gravity="center"
+                android:visibility="invisible"/>
+
+        </FrameLayout>
+
 
         <TextView
             android:id="@+id/textCreateNewAccount"

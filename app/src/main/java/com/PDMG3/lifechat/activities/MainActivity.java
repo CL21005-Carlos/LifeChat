@@ -1,26 +1,44 @@
 package com.PDMG3.lifechat.activities;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.PDMG3.lifechat.R;
+import com.PDMG3.lifechat.databinding.ActivityMainBinding;
+import com.PDMG3.lifechat.utilities.Constants;
+import com.PDMG3.lifechat.utilities.PreferenceManager;
+
+
 
 public class MainActivity extends AppCompatActivity {
+
+    private ActivityMainBinding binding;
+    private PreferenceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        preferenceManager = new PreferenceManager(getApplicationContext());
+        loadUserDetails();
+    }
+    private void loadUserDetails(){
+        binding.textName.setText(preferenceManager.getString(Constants.KEY_NAME));
+        byte[] bytes = Base64.decode(preferenceManager.getString(Constants.KEY_IMAGE), Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+        binding.imageProfile.setImageBitmap(bitmap);
+    }
+
+    private void showToast(String message){
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void updateToken(String token){
+
     }
 }
