@@ -13,4 +13,5 @@
     <string name="ConfirmPassword">Confirmar Contraseña</string>
     <string name="NewAccount">CREAR CUENTA</string>
     <string name="select_chat">Seleccionar Chat</string>
+    <string name="write_message">Escribe un mensaje</string>
 </resources>
